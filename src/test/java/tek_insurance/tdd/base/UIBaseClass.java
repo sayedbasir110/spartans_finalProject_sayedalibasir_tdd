@@ -23,6 +23,8 @@ public class UIBaseClass extends SeleniumUtility {
     public SignInPage signInPage;
     public PrimaryAccountPortalPage primaryAccountPortalPage;
     public CustomerServicePortalPage customerServicePortalPage;
+    public PlansPage plansPage;
+    public AccountsPage accountsPage;
     @BeforeMethod
     public void beforeEachTest(){
         LOGGER.info("Setup test and opening browser");
@@ -33,6 +35,8 @@ public class UIBaseClass extends SeleniumUtility {
         signInPage = new SignInPage();
         primaryAccountPortalPage = new PrimaryAccountPortalPage();
         customerServicePortalPage = new CustomerServicePortalPage();
+        plansPage = new PlansPage();
+        accountsPage = new AccountsPage();
     }
     @AfterMethod
     public void testCleanUp(ITestResult result){

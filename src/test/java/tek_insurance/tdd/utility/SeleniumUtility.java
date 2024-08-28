@@ -3,7 +3,6 @@ package tek_insurance.tdd.utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import tek_insurance.tdd.base.BaseSetup;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
     private static final Logger LOGGER = LogManager.getLogger(SeleniumUtility.class);
@@ -53,5 +53,9 @@ public class SeleniumUtility extends BaseSetup {
         LOGGER.info("Sending {}, {}, {} to {}",year,month,day,element);
         Actions actions = new Actions(getDriver());
         actions.moveToElement(element).click().sendKeys(year).sendKeys(Keys.ARROW_RIGHT).sendKeys(month).sendKeys(Keys.ARROW_RIGHT).sendKeys(day).sendKeys(Keys.ENTER).perform();
+    }
+    public List<WebElement> getElements(List<WebElement> elements){
+        LOGGER.info("getting all elements {}", elements);
+        return getWait().until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 }

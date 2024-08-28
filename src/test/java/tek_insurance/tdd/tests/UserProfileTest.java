@@ -7,8 +7,8 @@ import tek_insurance.tdd.base.UIBaseClass;
 
 
 public class UserProfileTest extends UIBaseClass {
-    SoftAssert softAssert = new SoftAssert();
     public void loginAndVerifyPageTitle() {
+        SoftAssert softAssert = new SoftAssert();
         clickOnElement(homePage.loginBtn);
         signInPage.doSignIn("supervisor","tek_supervisor");
         String actualPageCornerTitle = getElementText(customerServicePortalPage.cornerPageTitle);
@@ -16,6 +16,7 @@ public class UserProfileTest extends UIBaseClass {
     }
     @Test //scenario 1
     public void loginWithCSRCredentials_validateProfileInfo(){
+        SoftAssert softAssert = new SoftAssert();
         loginAndVerifyPageTitle();
         clickOnElement(customerServicePortalPage.profileBtn);
         String actualUserType = getElementText(customerServicePortalPage.profileUserType);
@@ -30,6 +31,7 @@ public class UserProfileTest extends UIBaseClass {
     }
     @Test // scenario 2
     public void loginWithCSRCredentials_validateLogOut(){
+        SoftAssert softAssert = new SoftAssert();
         loginAndVerifyPageTitle();
         clickOnElement(customerServicePortalPage.profileBtn);
         clickOnElement(customerServicePortalPage.logoutBtn);
