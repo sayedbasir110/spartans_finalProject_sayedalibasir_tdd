@@ -2,7 +2,7 @@
 <suite name="Spartans final project">
     <test name="Run all test scenarios">
         <classes>
-            <class name="tek_insurance.tdd.tests.UserProfileTest"></class>
+            <class name="tek_insurance.tdd.tests.CreateAccountTest"></class>
         </classes>
     </test>
 </suite>

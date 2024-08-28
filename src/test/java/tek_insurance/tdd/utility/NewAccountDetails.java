@@ -12,7 +12,7 @@ public class NewAccountDetails {
     private String birthMonth;
     private String birthDay;
     private String userName;
-    private String Password;
+    private String password;
     private String confirmPassword;
 
     public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String birthYear, String birthMonth, String birthDay, String password, String confirmPassword) {
@@ -27,7 +27,7 @@ public class NewAccountDetails {
         this.birthYear = birthYear;
         this.birthMonth = birthMonth;
         this.birthDay = birthDay;
-        Password = password;
+        this.password = password;
         this.confirmPassword = confirmPassword;
     }
 
@@ -67,8 +67,8 @@ public class NewAccountDetails {
     public void setBirthDay(String birthDay) {this.birthDay = birthDay;}
     public String getUserName() {return userName;}
     public void setUserName(String userName) {this.userName = userName;}
-    public String getPassword() {return Password;}
-    public void setPassword(String password) {Password = password;}
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password = password;}
     public String getConfirmPassword() {return confirmPassword;}
     public void setConfirmPassword(String confirmPassword) {this.confirmPassword = confirmPassword;}
 }
