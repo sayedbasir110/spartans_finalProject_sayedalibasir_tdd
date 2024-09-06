@@ -1,5 +1,7 @@
 package tek_insurance.tdd.utility;
 
+import java.time.LocalDate;
+
 public class NewAccountDetails {
     private String email;
     private String title;
@@ -8,14 +10,12 @@ public class NewAccountDetails {
     private String gender;
     private String maritalStatus;
     private String employmentStatus;
-    private String birthYear;
-    private String birthMonth;
-    private String birthDay;
+    private LocalDate dateOfBirth;
     private String userName;
     private String password;
     private String confirmPassword;
 
-    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String birthYear, String birthMonth, String birthDay, String password, String confirmPassword) {
+    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, LocalDate dateOfBirth) {
         if (email.equalsIgnoreCase("random")) this.email = RandomEmail.generateRandomEmail();
         else this.email = email;
         this.title = title;
@@ -24,14 +24,10 @@ public class NewAccountDetails {
         this.gender = gender;
         this.maritalStatus = maritalStatus;
         this.employmentStatus = employmentStatus;
-        this.birthYear = birthYear;
-        this.birthMonth = birthMonth;
-        this.birthDay = birthDay;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String birthYear, String birthMonth, String birthDay) {
+    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, LocalDate dateOfBirth, String userName, String password, String confirmPassword) {
         if (email.equalsIgnoreCase("random")) this.email = RandomEmail.generateRandomEmail();
         else this.email = email;
         this.title = title;
@@ -40,9 +36,11 @@ public class NewAccountDetails {
         this.gender = gender;
         this.maritalStatus = maritalStatus;
         this.employmentStatus = employmentStatus;
-        this.birthYear = birthYear;
-        this.birthMonth = birthMonth;
-        this.birthDay = birthDay;
+        this.dateOfBirth = dateOfBirth;
+        if (userName.equalsIgnoreCase("random")) this.userName = RandomUserName.generateRandomUserName();
+        else this.userName = userName;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getEmail() {return email;}
@@ -59,12 +57,8 @@ public class NewAccountDetails {
     public void setMaritalStatus(String maritalStatus) {this.maritalStatus = maritalStatus;}
     public String getEmploymentStatus() {return employmentStatus;}
     public void setEmploymentStatus(String employmentStatus) {this.employmentStatus = employmentStatus;}
-    public String getBirthYear() {return birthYear;}
-    public void setBirthYear(String birthYear) {this.birthYear = birthYear;}
-    public String getBirthMonth() {return birthMonth;}
-    public void setBirthMonth(String birthMonth) {this.birthMonth = birthMonth;}
-    public String getBirthDay() {return birthDay;}
-    public void setBirthDay(String birthDay) {this.birthDay = birthDay;}
+    public LocalDate getDateOfBirth() {return dateOfBirth;}
+    public void setDateOfBirth(LocalDate dateOfBirth) {this.dateOfBirth = dateOfBirth;}
     public String getUserName() {return userName;}
     public void setUserName(String userName) {this.userName = userName;}
     public String getPassword() {return password;}

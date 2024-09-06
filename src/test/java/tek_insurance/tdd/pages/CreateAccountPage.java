@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tek_insurance.tdd.utility.SeleniumUtility;
+import java.time.LocalDate;
 
 public class CreateAccountPage extends SeleniumUtility {
     public CreateAccountPage(){
@@ -21,7 +22,7 @@ public class CreateAccountPage extends SeleniumUtility {
     @FindBy(xpath = "//button[text()='Create Account']") public WebElement createAccountBtn;
     @FindBy(xpath = "//div[@data-status='error'][@role='alert']") public WebElement errorMessage;
 
-    public void fillUpNewAccountForm(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String year, String month, String day){
+    public void fillUpNewAccountForm(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, LocalDate dateOfBirth){
         sendTextToElement(emailInput, email);
         selectFromDropDown(titleDropDown, title);
         sendTextToElement(firstNameInput, firstName);
@@ -29,7 +30,7 @@ public class CreateAccountPage extends SeleniumUtility {
         selectFromDropDown(genderDropDown, gender);
         selectFromDropDown(maritalStatusDropDown, maritalStatus);
         sendTextToElement(employmentStatusInput, employmentStatus);
-        sendDateToDateInput(dateOfBirthInput, year,month,day);
+        sendDateToDateInput(dateOfBirthInput, dateOfBirth);
         clickOnElement(createAccountBtn);
     }
 }

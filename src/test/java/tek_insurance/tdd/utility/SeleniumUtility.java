@@ -2,15 +2,14 @@ package tek_insurance.tdd.utility;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek_insurance.tdd.base.BaseSetup;
-
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
@@ -49,10 +48,10 @@ public class SeleniumUtility extends BaseSetup {
         Select dropDown = new Select(dropDownElement);
         dropDown.selectByVisibleText(optionText);
     }
-    public void sendDateToDateInput(WebElement element, String year, String month, String day){
-        LOGGER.info("Sending {}, {}, {} to {}",year,month,day,element);
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(element).click().sendKeys(year).sendKeys(Keys.ARROW_RIGHT).sendKeys(month).sendKeys(Keys.ARROW_RIGHT).sendKeys(day).sendKeys(Keys.ENTER).perform();
+    public void sendDateToDateInput(WebElement element, LocalDate date){
+        LOGGER.info("Sending {} to {}", date,element);
+        String formatedDate = date.format(DateTimeFormatter.ofPattern("yyyyyy-MM-dd"));
+        waitForVisibility(element).sendKeys(formatedDate);
     }
     public List<WebElement> getElements(List<WebElement> elements){
         LOGGER.info("getting all elements {}", elements);

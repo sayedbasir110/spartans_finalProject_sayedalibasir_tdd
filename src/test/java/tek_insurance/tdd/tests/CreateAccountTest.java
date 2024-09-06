@@ -1,12 +1,11 @@
 package tek_insurance.tdd.tests;
-
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import tek_insurance.tdd.base.UIBaseClass;
 import tek_insurance.tdd.utility.NewAccountDetails;
-import tek_insurance.tdd.utility.RandomUserName;
+import java.time.LocalDate;
 
 public class CreateAccountTest extends UIBaseClass {
     public void createAccount(NewAccountDetails newAccountDetails){
@@ -19,9 +18,7 @@ public class CreateAccountTest extends UIBaseClass {
                 newAccountDetails.getGender(),
                 newAccountDetails.getMaritalStatus(),
                 newAccountDetails.getEmploymentStatus(),
-                newAccountDetails.getBirthYear(),
-                newAccountDetails.getBirthMonth(),
-                newAccountDetails.getBirthDay()
+                newAccountDetails.getDateOfBirth()
         );
     }
     @Test // scenario 1
@@ -39,7 +36,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "validData")
     public NewAccountDetails[] validData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed","1996","01","02")
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1996,1,2))
         };
     }
     @Test(dataProvider = "existingEmailTestData") // scenario 3
@@ -51,7 +48,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "existingEmailTestData")
     public NewAccountDetails[] existingEmailTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("john.doe@gmail.com","Mr.","John","Doe","Male","Single","Self employed","1996","01","02")
+                new NewAccountDetails("john.doe@gmail.com","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1966,1,2))
         };
     }
     @Test(dataProvider = "ageTestData") // scenario 4
@@ -63,7 +60,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "ageTestData")
     public NewAccountDetails[] ageTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed","2010","01","02")
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed",LocalDate.of(2010,1,2))
         };
     }
     @Test(dataProvider = "createAccountTestData") // scenario 5
@@ -72,14 +69,13 @@ public class CreateAccountTest extends UIBaseClass {
         createAccount(newAccountDetails);
         String actualAccountEmail = getElementText(signUpPage.accountEmail);
         softAssert.assertEquals(actualAccountEmail, newAccountDetails.getEmail(), "Account Email should match");
-        String userName = RandomUserName.generateRandomUserName();
         signUpPage.fillUpSignUpForm(
-                userName,
+                newAccountDetails.getUserName(),
                 newAccountDetails.getPassword(),
                 newAccountDetails.getConfirmPassword()
         );
         Thread.sleep(5000);
-        signInPage.doSignIn(userName, newAccountDetails.getPassword());
+        signInPage.doSignIn(newAccountDetails.getUserName(), newAccountDetails.getPassword());
         String actualPageCornerTitle = getElementText(primaryAccountPortalPage.cornerPageTitle);
         softAssert.assertEquals(actualPageCornerTitle, "Primary Account Portal", "Page title should match");
         clickOnElement(primaryAccountPortalPage.profileBtn);
@@ -90,8 +86,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "createAccountTestData")
     public NewAccountDetails[] createAccountTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single",
-                        "Self employed","1996","01","02","John@123","John@123")
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1966,1,2),"random","John@123","John@123")
         };
     }
 }

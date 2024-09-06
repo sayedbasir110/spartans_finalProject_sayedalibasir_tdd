@@ -8,7 +8,7 @@ public class HomePageTest extends UIBaseClass {
     @Test
     public void validateHomePageTitleAndCreateAccountBtn(){
         String pageTitle = getPageTitle();
-        Assert.assertEquals(pageTitle, "Tek Insurance UI", "Page title should match");
+        Assert.assertEquals(pageTitle, "TEK Insurance UI", "Page title should match");
         boolean isBtnDisplayed = isElementDisplayed(homePage.createPrimaryAccountBtn);
         Assert.assertTrue(isBtnDisplayed);
     }
