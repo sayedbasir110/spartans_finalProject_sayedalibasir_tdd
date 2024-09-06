@@ -7,11 +7,9 @@ import tek_insurance.tdd.browsers.BaseBrowser;
 import tek_insurance.tdd.browsers.ChromeBrowser;
 import tek_insurance.tdd.browsers.EdgeBrowser;
 import tek_insurance.tdd.browsers.FirefoxBrowser;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ref.Cleaner;
 import java.time.Duration;
 import java.util.Properties;
 

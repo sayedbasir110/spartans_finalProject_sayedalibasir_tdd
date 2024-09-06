@@ -1,10 +1,8 @@
 package tek_insurance.tdd.tests;
 
-
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import tek_insurance.tdd.base.UIBaseClass;
-
 
 public class UserProfileTest extends UIBaseClass {
     public void loginAndVerifyPageTitle() {
