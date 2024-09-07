@@ -15,7 +15,7 @@ public class CustomerServicePortalPage extends SeleniumUtility {
     @FindBy(xpath = "//p[text()='USER TYPE']/following-sibling::p") public WebElement profileUserType;
     @FindBy(xpath = "//p[text()='FULL NAME']/following-sibling::p") public WebElement profileFullName;
     @FindBy(xpath = "//p[text()='USERNAME']/following-sibling::p") public WebElement profileUserName;
-    @FindBy(xpath = "//div/div/div[5]/ul/li") public WebElement profileAuthorities;
+    @FindBy(xpath = "//p[text()='AUTHORITIES']//following-sibling::ul") public WebElement profileAuthorities;
     @FindBy(xpath = "//a[@href='/csr/plans']") public WebElement plansPageLink;
     @FindBy(xpath = "//a[@href='/csr/accounts']") public WebElement accountsPageLink;
 }
