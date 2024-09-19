@@ -2,7 +2,7 @@
 <suite name="API tests">
     <test name="Run all API tests">
         <packages>
-            <package name="tek_insurance.tdd."></package>
+            <package name="tek_insurance.tdd.api.test"></package>
         </packages>
     </test>
 </suite>

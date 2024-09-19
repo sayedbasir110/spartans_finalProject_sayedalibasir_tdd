@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import tek_insurance.tdd.api.models.Endpoints;
+import tek_insurance.tdd.api.models.enums.Endpoints;
 import tek_insurance.tdd.base.ApiTestBase;
 
 import java.util.HashMap;
