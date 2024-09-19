@@ -10,6 +10,7 @@ public enum Endpoints {
     GET_PRIMARY_ACCOUNT("/api/accounts/get-primary-account"),
     GET_ALL_PLAN_CODE("/api/plans/get-all-plan-code"),
     ADD_PRIMARY_ACCOUNT("/api/accounts/add-primary-account"),
-    GET_ACCOUNT("/api/accounts/get-account");
+    GET_ACCOUNT("/api/accounts/get-account"),
+    USER_PROFILE("/api/user/profile");
     private final String value;
 }

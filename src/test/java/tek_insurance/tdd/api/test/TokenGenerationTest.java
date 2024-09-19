@@ -39,7 +39,7 @@ public class TokenGenerationTest extends ApiTestBase {
         };
     }
     @Test(dataProvider = "negativeTestData")
-    public void negativeTest(String username, String password, int statusCode, String expectedErrorMessage){
+    public void getTokenNegativeTest(String username, String password, int statusCode, String expectedErrorMessage){
         RequestSpecification request = getDefaultRequest();
         request.body(getRequestBody(username, password));
         Response response = request.when().post(Endpoints.TOKEN.getValue());
