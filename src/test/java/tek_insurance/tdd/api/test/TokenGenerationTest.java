@@ -42,7 +42,7 @@ public class TokenGenerationTest extends ApiTestBase {
     public void negativeTest(String username, String password, int statusCode, String expectedErrorMessage){
         RequestSpecification request = getDefaultRequest();
         request.body(getRequestBody(username, password));
-        Response response = request.when().post(Endpoints.GET_ACCOUNT.getValue());
+        Response response = request.when().post(Endpoints.TOKEN.getValue());
         response.then().statusCode(statusCode);
         String actualErrorMessage = response.body().jsonPath().getString("errorMessage");
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage, "Error message should match");
