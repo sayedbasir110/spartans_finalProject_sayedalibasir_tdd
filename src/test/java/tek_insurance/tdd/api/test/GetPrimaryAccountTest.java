@@ -19,7 +19,7 @@ public class GetPrimaryAccountTest extends ApiTestBase {
         Response response = request.when().get(Endpoints.GET_PRIMARY_ACCOUNT.getValue());
         response.then().statusCode(200);
         response.prettyPrint();
-        getTestResponse(response.asPrettyString());
+        extentResponse(response.asPrettyString());
     }
     @Test
     public void validateGetAccountNotExist(){

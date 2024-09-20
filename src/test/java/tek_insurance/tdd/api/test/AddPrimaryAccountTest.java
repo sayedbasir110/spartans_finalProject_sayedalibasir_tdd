@@ -31,7 +31,7 @@ public class AddPrimaryAccountTest extends ApiTestBase {
                 .then().statusCode(201)
                 .extract().response();
         response.prettyPrint();
-        getTestResponse(response.asPrettyString());
+        extentResponse(response.asPrettyString());
         PrimaryAccountResponse primaryAccountResponse = response.body().jsonPath().getObject("", PrimaryAccountResponse.class);
         Assert.assertEquals(primaryAccountResponse.getFirstName(), "John");
     }

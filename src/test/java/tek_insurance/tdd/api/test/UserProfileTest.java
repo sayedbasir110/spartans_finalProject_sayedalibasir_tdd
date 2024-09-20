@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek_insurance.tdd.api.models.enums.Endpoints;
-import tek_insurance.tdd.api.models.requests.TokenRequest;
 import tek_insurance.tdd.api.models.responses.UserProfileResponse;
 import tek_insurance.tdd.base.ApiTestBase;
 
@@ -13,18 +12,10 @@ public class UserProfileTest extends ApiTestBase {
 
     @Test(dataProvider = "userProfileTestData")
     public void getUserProfileAndValidate(String username, String password, String expectedResponse) {
-        String token = authenticateUser(username, password);
+        String token = getValidToken(username, password);
         UserProfileResponse userProfileResponse = fetchUserProfile(token);
-        getTestResponse(userProfileResponse.toString());
+        extentResponse(userProfileResponse.toString());
         Assert.assertEquals(userProfileResponse.getFullName(), expectedResponse, "FullName should match");
-    }
-    private String authenticateUser(String username, String password) {
-        TokenRequest tokenRequest = new TokenRequest(username, password);
-        Response response = getDefaultRequest().body(tokenRequest)
-                .when().post(Endpoints.TOKEN.getValue())
-                .then().statusCode(200)
-                .extract().response();
-        return response.jsonPath().getString("token");
     }
     private UserProfileResponse fetchUserProfile(String token) {
         Response response = getDefaultRequest()
