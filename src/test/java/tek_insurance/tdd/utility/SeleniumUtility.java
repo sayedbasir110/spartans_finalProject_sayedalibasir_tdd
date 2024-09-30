@@ -50,8 +50,9 @@ public class SeleniumUtility extends BaseSetup {
     }
     public void sendDateToDateInput(WebElement element, LocalDate date){
         LOGGER.info("Sending {} to {}", date,element);
-        String formatedDate = date.format(DateTimeFormatter.ofPattern("yyyyyy-MM-dd"));
-        waitForVisibility(element).sendKeys(formatedDate);
+//        String formatedDate = date.format(DateTimeFormatter.ofPattern("yyyyyy-MM-dd"));
+//        waitForVisibility(element).sendKeys(formatedDate);
+        waitForVisibility(element).sendKeys(date.toString());
     }
     public List<WebElement> getElements(List<WebElement> elements){
         LOGGER.info("getting all elements {}", elements);
