@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek_insurance.tdd.base.BaseSetup;
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
@@ -48,10 +46,9 @@ public class SeleniumUtility extends BaseSetup {
         Select dropDown = new Select(dropDownElement);
         dropDown.selectByVisibleText(optionText);
     }
-    public void sendDateToDateInput(WebElement element, LocalDate date){
+    public void sendDateToDateInput(WebElement element, String date){
         LOGGER.info("Sending {} to {}", date,element);
-        String formatedDate = date.format(DateTimeFormatter.ofPattern("yyyyyy-MM-dd"));
-        waitForVisibility(element).sendKeys(formatedDate);
+        waitForVisibility(element).sendKeys(date);
     }
     public List<WebElement> getElements(List<WebElement> elements){
         LOGGER.info("getting all elements {}", elements);

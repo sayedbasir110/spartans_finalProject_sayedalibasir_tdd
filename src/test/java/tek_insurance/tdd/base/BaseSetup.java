@@ -1,6 +1,5 @@
 package tek_insurance.tdd.base;
 
-import io.restassured.RestAssured;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -21,20 +20,23 @@ private final Properties properties;
 protected static final int WAIT_TIME_IN_SECONDS = 25;
 
 public BaseSetup(){
-    String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/dev-config.properties";
+    String configFilePath = getConfigFilePath();
     try {
         LOGGER.debug("Reading config file from {}", configFilePath);
         InputStream inputStream = new FileInputStream(configFilePath);
         properties = new Properties();
         properties.load(inputStream);
-        // Get API Base url and setup restAssured
-        String baseURL = properties.getProperty("api.url");
-        RestAssured.baseURI = baseURL;
 
     } catch (IOException ex){
         LOGGER.error("Config file error with {}", ex.getMessage());
         throw new RuntimeException("Config file error with message" + ex.getMessage());
     }
+}
+private String getConfigFilePath(){
+    String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/{env}-config.properties";
+    String env = System.getProperty("env");
+    if (env == null) return configFilePath.replace("{env}", "dev");
+    return configFilePath.replace("env", env);
 }
 public void setupBrowser(){
     String browserType = properties.getProperty("ui.browser");
@@ -57,8 +59,5 @@ public void closeBrowser(){
 }
 public WebDriver getDriver(){
     return driver;
-}
-public String getProperty(String key){
-    return properties.getProperty(key);
 }
 }

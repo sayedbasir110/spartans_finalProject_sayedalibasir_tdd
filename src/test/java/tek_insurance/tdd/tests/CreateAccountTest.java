@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import tek_insurance.tdd.base.UIBaseClass;
 import tek_insurance.tdd.utility.NewAccountDetails;
-import java.time.LocalDate;
 
 public class CreateAccountTest extends UIBaseClass {
     public void createAccount(NewAccountDetails newAccountDetails){
@@ -36,7 +35,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "validData")
     public NewAccountDetails[] validData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1996,1,2))
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed","02/01/1996")
         };
     }
     @Test(dataProvider = "existingEmailTestData") // scenario 3
@@ -48,7 +47,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "existingEmailTestData")
     public NewAccountDetails[] existingEmailTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("john.doe@gmail.com","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1966,1,2))
+                new NewAccountDetails("john.doe@gmail.com","Mr.","John","Doe","Male","Single","Self employed", "02/01/1996")
         };
     }
     @Test(dataProvider = "ageTestData") // scenario 4
@@ -60,7 +59,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "ageTestData")
     public NewAccountDetails[] ageTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed",LocalDate.of(2010,1,2))
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", "02/01/2010")
         };
     }
     @Test(dataProvider = "createAccountTestData") // scenario 5
@@ -86,7 +85,7 @@ public class CreateAccountTest extends UIBaseClass {
     @DataProvider(name = "createAccountTestData")
     public NewAccountDetails[] createAccountTestData(){
         return new NewAccountDetails[]{
-                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", LocalDate.of(1966,1,2),"random","John@123","John@123")
+                new NewAccountDetails("random","Mr.","John","Doe","Male","Single","Self employed", "02/01/1966","random","John@123","John@123")
         };
     }
 }

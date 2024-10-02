@@ -1,6 +1,5 @@
 package tek_insurance.tdd.utility;
 
-import java.time.LocalDate;
 
 public class NewAccountDetails {
     private String email;
@@ -10,12 +9,12 @@ public class NewAccountDetails {
     private String gender;
     private String maritalStatus;
     private String employmentStatus;
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
     private String userName;
     private String password;
     private String confirmPassword;
 
-    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, LocalDate dateOfBirth) {
+    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String dateOfBirth) {
         if (email.equalsIgnoreCase("random")) this.email = RandomEmail.generateRandomEmail();
         else this.email = email;
         this.title = title;
@@ -27,7 +26,7 @@ public class NewAccountDetails {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, LocalDate dateOfBirth, String userName, String password, String confirmPassword) {
+    public NewAccountDetails(String email, String title, String firstName, String lastName, String gender, String maritalStatus, String employmentStatus, String dateOfBirth, String userName, String password, String confirmPassword) {
         if (email.equalsIgnoreCase("random")) this.email = RandomEmail.generateRandomEmail();
         else this.email = email;
         this.title = title;
@@ -57,8 +56,8 @@ public class NewAccountDetails {
     public void setMaritalStatus(String maritalStatus) {this.maritalStatus = maritalStatus;}
     public String getEmploymentStatus() {return employmentStatus;}
     public void setEmploymentStatus(String employmentStatus) {this.employmentStatus = employmentStatus;}
-    public LocalDate getDateOfBirth() {return dateOfBirth;}
-    public void setDateOfBirth(LocalDate dateOfBirth) {this.dateOfBirth = dateOfBirth;}
+    public String getDateOfBirth() {return dateOfBirth;}
+    public void setDateOfBirth(String dateOfBirth) {this.dateOfBirth = dateOfBirth;}
     public String getUserName() {return userName;}
     public void setUserName(String userName) {this.userName = userName;}
     public String getPassword() {return password;}
