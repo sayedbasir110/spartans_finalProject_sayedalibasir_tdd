@@ -1,6 +1,10 @@
 package tek_insurance.tdd.utility;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class NewAccountDetails {
     private String email;
     private String title;
@@ -41,27 +45,4 @@ public class NewAccountDetails {
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
-
-    public String getEmail() {return email;}
-    public void setEmail(String email) {this.email = email;}
-    public String getTitle() {return title;}
-    public void setTitle(String title) {this.title = title;}
-    public String getFirstName() {return firstName;}
-    public void setFirstName(String firstName) {this.firstName = firstName;}
-    public String getLastName() {return lastName;}
-    public void setLastName(String lastName) {this.lastName = lastName;}
-    public String getGender() {return gender;}
-    public void setGender(String gender) {this.gender = gender;}
-    public String getMaritalStatus() {return maritalStatus;}
-    public void setMaritalStatus(String maritalStatus) {this.maritalStatus = maritalStatus;}
-    public String getEmploymentStatus() {return employmentStatus;}
-    public void setEmploymentStatus(String employmentStatus) {this.employmentStatus = employmentStatus;}
-    public String getDateOfBirth() {return dateOfBirth;}
-    public void setDateOfBirth(String dateOfBirth) {this.dateOfBirth = dateOfBirth;}
-    public String getUserName() {return userName;}
-    public void setUserName(String userName) {this.userName = userName;}
-    public String getPassword() {return password;}
-    public void setPassword(String password) {this.password = password;}
-    public String getConfirmPassword() {return confirmPassword;}
-    public void setConfirmPassword(String confirmPassword) {this.confirmPassword = confirmPassword;}
 }
