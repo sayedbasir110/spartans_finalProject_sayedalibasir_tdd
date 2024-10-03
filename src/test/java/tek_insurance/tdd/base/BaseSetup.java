@@ -19,6 +19,12 @@ private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
 private final Properties properties;
 protected static final int WAIT_TIME_IN_SECONDS = 25;
 
+private String getConfigFilePath(){
+        String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/{env}-config.properties";
+        String env = System.getProperty("env");
+        if (env == null) return configFilePath.replace("{env}", "dev");
+        return configFilePath.replace("env", env);
+    }
 public BaseSetup(){
     String configFilePath = getConfigFilePath();
     try {
@@ -32,12 +38,7 @@ public BaseSetup(){
         throw new RuntimeException("Config file error with message" + ex.getMessage());
     }
 }
-private String getConfigFilePath(){
-    String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/{env}-config.properties";
-    String env = System.getProperty("env");
-    if (env == null) return configFilePath.replace("{env}", "dev");
-    return configFilePath.replace("env", env);
-}
+
 public void setupBrowser(){
     String browserType = properties.getProperty("ui.browser");
     boolean isHeadless = Boolean.parseBoolean(properties.getProperty("ui.browser.headless"));

@@ -14,20 +14,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!-- Selenium-java dependency -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.25.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!-- testNG dependency -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.10.2</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- apache log4j2 dependency -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
@@ -44,13 +44,13 @@
             <artifactId>log4j-core</artifactId>
             <version>2.22.1</version>
         </dependency>
-
+        <!-- extent report dependency -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports-testng-adapter</artifactId>
             <version>1.2.2</version>
         </dependency>
-
+        <!-- lombok dependency -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
